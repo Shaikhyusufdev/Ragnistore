@@ -19,3 +19,12 @@ addEventListener("scroll",()=>bar.style.transform=`scaleX(${scrollY/(document.bo
 document.body.insertAdjacentHTML("beforeend",`<a id="wf" href="https://wa.me/${C.whatsapp}?text=${encodeURIComponent("Hello RAGNI BAGS!")}" target="_blank" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></a><div id="pop"><button id="px" aria-label="Close">&times;</button><b>Store offer</b><p>Up to 50% off on selected bags. Message us on WhatsApp to order.</p><a class="btn sm" href="#shop" id="pg">View offers</a></div>`);
 const pop=$("#pop");setTimeout(()=>{try{if(sessionStorage.pp)return;sessionStorage.pp=1}catch(e){}pop.classList.add("on")},4500);$("#px").onclick=$("#pg").onclick=()=>pop.classList.remove("on");
 fx()})();
+/* ---- scroll + touch motion ---- */
+(()=>{const hd=$("header"),an=$(".mq div")?.getAnimations()[0];let ly=scrollY,v=0,rate=1,run=0,idle=0;
+const tick=()=>{const y=scrollY;v=y-ly;ly=y;
+ if(hd)hd.style.transform=(v>4&&y>240)?"translateY(-110%)":(v<-2||y<240)?"none":hd.style.transform;
+ if(an){rate+=((1+Math.max(-9,Math.min(9,v*.45)))-rate)*.12;an.playbackRate=rate}
+ $$(".card").forEach(c=>{const r=c.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const p=(r.top+r.height/2)/innerHeight-.5,i=c.querySelector("img");if(i)i.style.translate=`0 ${Math.max(-14,Math.min(14,p*-30))}px`});
+ idle=(Math.abs(v)<.5&&Math.abs(rate-1)<.03)?idle+1:0;if(idle>20){run=0;if(an)an.playbackRate=1;return}requestAnimationFrame(tick)};
+const go=()=>{idle=0;if(!run){run=1;requestAnimationFrame(tick)}};addEventListener("scroll",go,{passive:true});addEventListener("load",go);
+document.addEventListener("touchstart",()=>{},{passive:true})})();
