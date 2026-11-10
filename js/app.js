@@ -23,5 +23,5 @@ const glow=document.createElement("div");glow.className="glow";document.body.app
 addEventListener("mousemove",e=>glow.style.transform=`translate(${e.clientX-150}px,${e.clientY-150}px)`);
 addEventListener("scroll",()=>$("header")?.classList.toggle("sc",scrollY>30));
 addEventListener("load",()=>setTimeout(()=>$("#pre")?.classList.add("off"),600));
-function footer(){document.body.insertAdjacentHTML("beforeend",`<footer><div class="fw"><h2>${C.brand}</h2><nav><a href="https://wa.me/${C.whatsapp}" target="_blank">Contact Us</a><a href="${C.instagram}" target="_blank">Instagram</a><a href="${C.googleProfile}" target="_blank">Google Profile</a></nav><p>📍 ${C.address}</p><small>© ${new Date().getFullYear()} ${C.brand}. All rights reserved.</small></div></footer>`)}
+function footer(){document.body.insertAdjacentHTML("beforeend",`<footer><div class="fw"><h2>${C.brand}</h2><nav><a href="https://wa.me/${C.whatsapp}" target="_blank">Contact Us</a><a href="${C.instagram}" target="https://www.instagram.com/ragnibags?cplk=bjhwMWk0em5heDRn">Instagram</a><a href="${C.googleProfile}" target="_blank">Google Profile</a></nav><p>📍 ${C.address}</p><small>© ${new Date().getFullYear()} ${C.brand}. All rights reserved.</small></div></footer>`)}
 document.body.insertAdjacentHTML("afterbegin",`<div id="pre"><span>${C.brand}</span></div>`);
