@@ -5,7 +5,7 @@ window.CONFIG = {
   instagram: "https://www.instagram.com/ragnibags?cplk=bjhwMWk0em5heDRn",
   googleProfile: "https://share.google/DwEGfNpANJjOhIMwq",
   address: "RAGNI BAGS PUPRI, NEAR DILKASH READYMADE & OPPOSITE AAWARAN",
-  siteUrl: "https://YOURNAME.github.io/ragni-bags", // sitemap ke liye
+  siteUrl: "https://ragnibags.store", // sitemap ke liye
   // Image upload (Cloudinary) - README dekho
   cloudinary: { cloudName: "", uploadPreset: "" },
   // Firebase (products online save hone ke liye) - README dekho. Khali chhodo to demo mode chalega.
