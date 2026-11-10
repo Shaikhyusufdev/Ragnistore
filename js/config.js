@@ -10,5 +10,5 @@ window.CONFIG = {
   uploadUrl: "/api/upload",
   // Firebase (products online save hone ke liye) - README dekho. Khali chhodo to demo mode chalega.
   firebase: { apiKey:"", authDomain:"", projectId:"", appId:"" },
-  demoPassword: "ragni123"             // sirf demo mode ka admin password
+  demoPassword: "ragni9699"             // sirf demo mode ka admin password
 };
