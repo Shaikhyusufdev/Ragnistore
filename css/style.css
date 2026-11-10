@@ -82,3 +82,21 @@ footer p{color:var(--m);margin-bottom:18px}footer small{color:#6b625b}
 .wc svg{width:30px;color:var(--g);margin-bottom:16px}.wc h3{font:700 1.15rem 'Playfair Display'}.wc p{color:var(--m);margin-top:8px;line-height:1.6}
 @media(max-width:800px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:110px;gap:34px}.hv{height:380px}.col:nth-child(2){margin-top:-40px}main{padding-top:50px}}
 @media(prefers-reduced-motion:reduce){.col{animation:none}}
+/* ---- readability + final polish ---- */
+:root{--m:#cbc0b6}
+body{font-size:17px;line-height:1.65}
+.info h3{font:600 1.02rem/1.35 Inter,sans-serif;letter-spacing:0}.info small{color:var(--m);font-size:.82rem}.pr b{font-size:1.2rem}.pr s{color:#9d9087}
+.hero .sub{font-size:1.08rem}
+.why{display:block;padding:30px 5vw 70px}
+.wl{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff1f}
+.wi{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:30px 26px 30px 0;border-bottom:1px solid #ffffff1f;transition:background .5s}
+.wi svg{width:32px;color:var(--g);margin-top:3px;transition:transform .6s cubic-bezier(.2,.8,.2,1)}.wi:hover svg{transform:translateY(-4px) scale(1.12)}
+.wi h3{font:600 1.12rem Inter,sans-serif;color:var(--t)}.wi p{color:var(--m);margin-top:6px;line-height:1.6}
+footer{padding-top:70px}footer nav{flex-wrap:wrap;gap:12px}footer nav a{font-size:1rem;font-weight:500;padding:12px 24px;border:1px solid #d4a24c77;border-radius:99px;transition:background .35s,color .35s,transform .35s}
+footer nav a:after{display:none}footer nav a:hover{background:var(--g);color:#1a1214;transform:translateY(-3px)}footer p{color:var(--m);font-size:1rem;line-height:1.7}
+.card .imgw img{transform:scale(1.14);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}.card.in .imgw img{transform:scale(1.14)}.card.in:hover .imgw img{transform:scale(1.22)}
+.card:active{transform:scale(.97)!important;transition:transform .15s}.btn:active{transform:scale(.96)}
+header{transition:background .4s,padding .4s,transform .6s cubic-bezier(.2,.8,.2,1)}
+@media(max-width:800px){.wl{grid-template-columns:1fr}.wi{padding:22px 0}
+#chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scroll-snap-type:x proximity;scrollbar-width:none;margin-inline:-5vw;padding-inline:5vw}#chips::-webkit-scrollbar{display:none}.chip{flex:none;scroll-snap-align:start}
+.info h3{font-size:.95rem}}
