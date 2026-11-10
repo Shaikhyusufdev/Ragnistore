@@ -12,12 +12,14 @@ function show(){$("#login").hidden=ok();$("#app").hidden=!ok();if(ok())load()}
 async function load(){list=await getProducts();$("#plist").innerHTML=list.map(p=>`<div class="row"><img src="${p.images[0]}"><div><b>${p.title}</b><br><small>₹${p.price} / ₹${p.mrp} • ${pct(p)}% • ${p.cat}</small></div><button onclick="ed('${p.id}')">Edit</button><button onclick="rm('${p.id}')">Delete</button></div>`).join("");
  $("#cats").innerHTML=[...new Set(list.map(p=>p.cat))].map(c=>`<option value="${c}">`).join("")}
 function prev(){$("#prev").innerHTML=imgs.map((u,i)=>`<div><img src="${u}"><button onclick="imgs.splice(${i},1);prev()">×</button></div>`).join("")}
-async function up(files){const {cloudName:cn,uploadPreset:pr}=C.cloudinary;
+const shrink=f=>new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1400/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);c.toBlob(b=>r(b||f),"image/jpeg",.85)};i.onerror=()=>r(f);i.src=URL.createObjectURL(f)});
+async function up(files){const U=C.uploadUrl;
  for(const f of files){
-  if(!cn){const r=new FileReader();r.onload=()=>{imgs.push(r.result);prev()};r.readAsDataURL(f);toast("Cloudinary set nahi — demo preview");continue}
-  const fd=new FormData();fd.append("file",f);fd.append("upload_preset",pr);
+  if(!U){const r=new FileReader();r.onload=()=>{imgs.push(r.result);prev()};r.readAsDataURL(f);toast("uploadUrl set nahi - demo preview");continue}
+  let pw=sessionStorage.upw||prompt("Upload password (s3-config.php me ADMIN_PASS)");if(!pw)return;
   $("#dz").classList.add("busy");
-  try{const r=await(await fetch(`https://api.cloudinary.com/v1_1/${cn}/image/upload`,{method:"POST",body:fd})).json();imgs.push(r.secure_url);prev()}catch(e){toast("Upload fail")}
+  try{const res=await fetch(U,{method:"POST",headers:{"X-Admin-Pass":pw,"Content-Type":"image/jpeg"},body:await shrink(f)}),r=await res.json();
+   if(!res.ok)throw r.error;sessionStorage.upw=pw;imgs.push(r.url);prev()}catch(e){sessionStorage.removeItem("upw");toast("Upload fail: "+(e||"server"))}
   $("#dz").classList.remove("busy")}}
 const dz=$("#dz"),fi=$("#fi");
 dz.onclick=()=>fi.click();fi.onchange=()=>up(fi.files);
