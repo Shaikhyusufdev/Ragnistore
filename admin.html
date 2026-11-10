@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><title>Admin | RAGNI BAGS</title><meta name="robots" content="noindex"></head><body class="adm">
+<div id="login" class="box"><h2>Admin Login</h2><input id="em" placeholder="Email"><input id="pw" type="password" placeholder="Password"><button class="btn" id="lb">Login</button></div>
+<div id="app" hidden><div class="top"><h2>RAGNI BAGS Admin</h2><button class="btn sm" id="lo">Logout</button></div>
+<div class="box"><h3>Add / Edit Product</h3><input id="t" placeholder="Bag title"><input id="c" list="cats" placeholder="Category (nayi bhi likh sakte ho)"><datalist id="cats"></datalist>
+<div class="two"><input id="pr" type="number" placeholder="Offer price (499)"><input id="mrp" type="number" placeholder="Original price MRP (699)"></div>
+<textarea id="d" rows="4" placeholder="Description"></textarea>
+<div id="dz">📷 Images drag &amp; drop karo ya click karke chuno (1 se 4+)</div><input type="file" id="fi" accept="image/*" multiple hidden><div id="prev"></div>
+<button class="btn" id="save">Save Product</button></div>
+<div class="box"><h3>All Products</h3><div id="plist"></div></div></div><div id="toast"></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script><script src="js/config.js"></script><script src="js/app.js"></script><script src="js/admin.js"></script></body></html>
