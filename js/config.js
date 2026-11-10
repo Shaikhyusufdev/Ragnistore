@@ -2,8 +2,8 @@
 window.CONFIG = {
   brand: "RAGNI BAGS",
   whatsapp: "919699430407",            // country code ke saath
-  instagram: "https://instagram.com/YOUR_INSTAGRAM",
-  googleProfile: "https://g.page/YOUR_GOOGLE_PROFILE",
+  instagram: "https://www.instagram.com/ragnibags?cplk=bjhwMWk0em5heDRn",
+  googleProfile: "https://share.google/DwEGfNpANJjOhIMwq",
   address: "RAGNI BAGS PUPRI, NEAR DILKASH READYMADE & OPPOSITE AAWARAN",
   siteUrl: "https://YOURNAME.github.io/ragni-bags", // sitemap ke liye
   // Image upload (Cloudinary) - README dekho
