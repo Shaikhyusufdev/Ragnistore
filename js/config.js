@@ -7,7 +7,7 @@ window.CONFIG = {
   address: "RAGNI BAGS PUPRI, NEAR DILKASH READYMADE & OPPOSITE AAWARAN",
   siteUrl: "https://ragnibags.store", // sitemap ke liye
   // Image upload (Cloudinary) - README dekho
-  cloudinary: { cloudName: "", uploadPreset: "" },
+  uploadUrl: "/api/upload",
   // Firebase (products online save hone ke liye) - README dekho. Khali chhodo to demo mode chalega.
   firebase: { apiKey:"", authDomain:"", projectId:"", appId:"" },
   demoPassword: "ragni123"             // sirf demo mode ka admin password
