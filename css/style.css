@@ -100,3 +100,6 @@ header{transition:background .4s,padding .4s,transform .6s cubic-bezier(.2,.8,.2
 @media(max-width:800px){.wl{grid-template-columns:1fr}.wi{padding:22px 0}
 #chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scroll-snap-type:x proximity;scrollbar-width:none;margin-inline:-5vw;padding-inline:5vw}#chips::-webkit-scrollbar{display:none}.chip{flex:none;scroll-snap-align:start}
 .info h3{font-size:.95rem}}
+/* seo section */
+.seo{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:10px 5vw 70px}.seo>p{color:var(--m);line-height:1.8;margin-bottom:24px}
+.faq details{border-bottom:1px solid #ffffff1f;padding:16px 0}.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}.faq summary::after{content:"+";color:var(--g);font-size:1.3rem;transition:transform .3s}.faq details[open] summary::after{transform:rotate(45deg)}.faq p{color:var(--m);margin-top:10px;line-height:1.7}
