@@ -12,7 +12,7 @@ async function getProducts(){if(db){const s=await db.collection("products").orde
 async function saveProduct(p){if(db){const id=p.id;delete p.id;if(id)await db.collection("products").doc(id).set(p);else{p.created=Date.now();await db.collection("products").add(p)}}else{const l=ls();p.id=p.id||"p"+Date.now();const i=l.findIndex(x=>x.id==p.id);i<0?l.unshift(p):l[i]=p;localStorage.rp=JSON.stringify(l)}}
 async function delProduct(id){if(db)await db.collection("products").doc(id).delete();else localStorage.rp=JSON.stringify(ls().filter(x=>x.id!=id))}
 const waLink=p=>`https://wa.me/${C.whatsapp}?text=`+encodeURIComponent(`Mujhe ye bag chahiye 🛍️\n\nBag: ${p.title}\nPrice: ₹${p.price} (MRP ₹${p.mrp}, ${pct(p)}% OFF)\nLink: ${location.origin}${location.pathname.replace(/[^/]*$/,"")}product.html?id=${p.id}`);
-function card(p,i){return `<a class="card reveal" style="--d:${i*70}ms" href="product.html?id=${p.id}"><span class="badge">${pct(p)}% OFF</span><div class="imgw"><img loading="lazy" src="${p.images[0]}" alt="${p.title}"></div><div class="info"><small>${p.cat}</small><h3>${p.title}</h3><div class="pr"><b>₹${p.price}</b><s>₹${p.mrp}</s></div></div></a>`}
+function card(p,i){return `<a class="card reveal" style="--d:${i*70}ms" href="product.html?id=${p.id}"><span class="badge">${pct(p)}% OFF</span><div class="imgw"><img loading="lazy" src="${p.images[0]}" alt="${p.title} - ${C.brand} Pupri"></div><div class="info"><small>${p.cat}</small><h3>${p.title}</h3><div class="pr"><b>₹${p.price}</b><s>₹${p.mrp}</s></div></div></a>`}
 function fx(){
  const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&(x.target.classList.add("in"),io.unobserve(x.target))),{threshold:.12});
  $$(".reveal:not(.in)").forEach(el=>io.observe(el));
