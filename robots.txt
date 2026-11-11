@@ -1,2 +1,6 @@
 User-agent: *
+Allow: /
 Disallow: /admin.html
+Disallow: /api/
+
+Sitemap: https://ragnibags.store/sitemap.xml
