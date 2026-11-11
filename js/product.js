@@ -1,9 +1,11 @@
 (async()=>{const all=await getProducts(),id=new URLSearchParams(location.search).get("id"),p=all.find(x=>x.id==id);
 if(!p){$("#pd").innerHTML="<h2>Product nahi mila</h2><a class='btn' href='index.html'>Home</a>";footer();return}
-document.title=`${p.title} - ₹${p.price} | ${C.brand}`;
-$('meta[name=description]').content=`${p.title} sirf ₹${p.price} me (${pct(p)}% OFF). ${p.desc.slice(0,110)}`;
+document.title=`${p.title} - ₹${p.price} | Buy in Pupri | ${C.brand}`;
+const mt=(a,k,v)=>{const e=document.createElement(a=="link"?"link":"meta");if(a=="link"){e.rel=k;e.href=v}else{e.setAttribute(a,k);e.content=v}document.head.append(e)};
+mt("link","canonical",location.origin+"/product.html?id="+p.id);mt("property","og:type","product");mt("property","og:title",`${p.title} - ₹${p.price} | ${C.brand}`);mt("property","og:image",p.images[0]);mt("name","twitter:card","summary_large_image");
+$('meta[name=description]').content=`${p.title} at ₹${p.price} (${pct(p)}% OFF) from ${C.brand}, Pupri. ${p.desc.replace(/\n/g," ").slice(0,100)}`;
 const ld=document.createElement("script");ld.type="application/ld+json";ld.text=JSON.stringify({"@context":"https://schema.org","@type":"Product",name:p.title,image:p.images,description:p.desc,offers:{"@type":"Offer",priceCurrency:"INR",price:p.price,availability:"https://schema.org/InStock"}});document.head.append(ld);
-$("#pd").innerHTML=`<div class="gal"><span class="badge">${pct(p)}% OFF</span><div class="sl">${p.images.map(i=>`<img src="${i}" alt="${p.title}">`).join("")}</div><div class="dots">${p.images.map((_,i)=>`<b data-i="${i}"></b>`).join("")}</div></div>
+$("#pd").innerHTML=`<div class="gal"><span class="badge">${pct(p)}% OFF</span><div class="sl">${p.images.map(i=>`<img src="${i}" alt="${p.title} - ${p.cat} | ${C.brand} Pupri">`).join("")}</div><div class="dots">${p.images.map((_,i)=>`<b data-i="${i}"></b>`).join("")}</div></div>
 <div class="det"><small>${p.cat}</small><h1>${p.title}</h1><div class="pr big"><b>₹${p.price}</b><s>₹${p.mrp}</s><em>Save ${pct(p)}%</em></div>
 <a class="btn buy" target="_blank" href="${waLink(p)}">🛒 Buy Now on WhatsApp</a>
 <h4>Description</h4><p>${p.desc.replace(/\n/g,"<br>")}</p></div>`;
